@@ -5,7 +5,15 @@ const resultTextElem = document.querySelector('.text-result');
 
 // Palindrome main logic
 buttonCheckElem.addEventListener("click", () => {
-  let inputVal = [...inputTextElem.value];
+  let inputText = inputTextElem.value;
+  let inputNormalize  = inputText.replace(/[\|\/\\\-:(),._ ]/g, '').toLowerCase();
+
+  if (inputText === '') {
+    alert('Please input a value')
+    return;
+  }
+
+  let inputVal = [...inputNormalize];
   let fisrtArray = [];
   let LastArray = [];
 
