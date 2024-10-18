@@ -16,7 +16,12 @@
         Enter your number (decimal or binary)
       </div>
   
-      <input id="number" type="number" class="js-input">
+      <div class="binaryOrDecimal">
+        <input id="number" type="number" class="js-input"  placeholder="Enter decimal number"  oninput="validateInput()">
+        <button  onclick="toggleInput()">
+          Change
+        </button>
+      </div>
   
       <button id="convert-btn" class="js-btn">
         Convert

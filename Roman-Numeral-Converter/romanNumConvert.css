@@ -69,3 +69,13 @@ button {
   display: none;
   margin-top: 20px;
 }
+
+.binaryOrDecimal {
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+input::placeholder {
+  color: var(--brown);
+}
