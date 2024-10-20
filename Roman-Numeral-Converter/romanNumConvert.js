@@ -54,16 +54,11 @@ buttonElem.addEventListener('click', () => {
 
 // Binary to Decimal Converter
 function binaryConverter(binary) {
-  let decimal = 0;
-  let length = binary.length;
-
-  for (let i = 0; i < length; i++) {
-    if (binary[i] === '1') {
-      decimal += Math.pow(2, length - 1 - i);
-    }
+  if (binary === 0) {
+    return 0;
   }
 
-  return decimal;
+  return binaryConverter(Number(binary.toString().slice(1))) + Math.pow(2, binary.toString().split('').length - 1);
 }
 
 // Filter for input
