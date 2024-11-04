@@ -75,7 +75,7 @@ main {
 
 .input {
   background-color: var(--white);
-  color: inherit;
+  color: var(--pink);
   border: none;
   font-size: inherit;
   border-radius: 7px;
@@ -88,18 +88,18 @@ main {
 }
 
 .btn-container {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  column-gap: 10px;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .check-btn, .clear-btn {
   background-color: var(--pink);
   color: var(--light-pink);
   font-size: 20px;
-  width: 80px;
+  height: 33px;
+  width: 110px;
   text-align: center;
   cursor: pointer;
 
