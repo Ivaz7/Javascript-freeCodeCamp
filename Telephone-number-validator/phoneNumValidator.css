@@ -1,0 +1,113 @@
+:root {
+  --light-pink: #edc7b7;
+  --white: #eee2dc;
+  --gray: #bab2b5;
+  --blue: #123c69;
+  --pink: #ac3b61;
+} 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-pink);
+  color: var(--pink);
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+}
+
+.header {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.the-phone {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 15px;
+  border: none;
+  border-bottom: 7px solid var(--gray);
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.camera {
+  background-color: var(--gray);
+  color: var(--gray);
+
+  padding: 0 7px;
+  border-radius: 10px;
+}
+
+.screen {
+  background-color: var(--gray);
+  color: var(--pink);
+  font-size: 20px;
+
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.input {
+  background-color: var(--white);
+  color: inherit;
+  border: none;
+  font-size: inherit;
+  border-radius: 7px;
+  outline: none;
+  padding: 7px 10px;
+}
+
+.result {
+  height: 320px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-btn, .clear-btn {
+  background-color: var(--pink);
+  color: var(--light-pink);
+  font-size: 20px;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+
+  border: none;
+  border-bottom: 1px solid var(--light-pink);
+  border-radius: 7px;
+}
+
+.check-btn:hover, .clear-btn:hover {
+  opacity: 0.9;
+}
