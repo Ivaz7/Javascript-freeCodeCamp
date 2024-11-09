@@ -28,6 +28,10 @@ main {
   row-gap: 50px;
 }
 
+#change-due p {
+  margin: 0 auto;
+}
+
 #cash {
   background-color: var(--gray);
   color: var(--white);
@@ -54,7 +58,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 20px;
+  row-gap: 10px;
 }
 
 .total-cost {
