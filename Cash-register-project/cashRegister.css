@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box; 
+}
+
+:root {
+  --black: #141619;
+  --gray: #2c2e3a;
+  --darkBlue: #050a44;
+  --blue: #0a21c0;
+  --white: #b3b4bd;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header, main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+main {
+  flex-direction: column;
+  row-gap: 50px;
+}
+
+#cash {
+  background-color: var(--gray);
+  color: var(--white);
+  font-size: inherit;
+  border: none;
+  outline: none;
+  padding: 2px 5px;
+}
+
+#purchase-btn {
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+#purchase-btn:hover {
+  background-color: var(--darkBlue);
+}
+
+.cashier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.total-cost {
+  background-color: var(--gray);
+  border: 9px solid var(--darkBlue);
+  padding: 10px;
+}
+
+.neck {
+  background-color: var(--darkBlue);
+  height: 40px;
+  width: 40px;
+}
+
+.top-cashier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-and-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px;
+
+  background-color: var(--darkBlue);
+  padding: 20px 50px;
+  border-radius: 30px 30px 0 0;
+}
+
+.grid-button-cashier {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.grid-button-cashier button {
+  background-color: var(--gray);
+  border: none;
+  height: 11px;
+}
+
+.drawer-list {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 0 20px 20px 20px;
+}
+
+.drawer {
+  background-color: var(--darkBlue);
+  width: 470px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot-handle {
+  background-color: var(--gray);
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+}
