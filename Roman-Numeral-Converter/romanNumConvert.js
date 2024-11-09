@@ -38,15 +38,7 @@ buttonElem.addEventListener('click', () => {
   }
 
   // Handle different ranges for Roman numeral conversion
-  if (input < 11) {
-    lessDozens(input);
-  } else if (input >= 10 && input < 100) {
-    lessHundred(input);
-  } else if (input >= 100 && input < 1000) {
-    lessThousand(input);
-  } else if (input >= 1000 && input < 4000) {
-    lessFourThousand(input);
-  }
+  romanNumConverter(input);
 
   resultElem.innerHTML = result;
   resultElem.style.display = 'flex';
@@ -85,110 +77,23 @@ function filterNum(input) {
 }
 
 // Roman numeral conversion logic
-function lessDozens(input) {
-  if (input < 4) {
-    while (input > 0) {
-      result += 'I';
-      input--;
-    }
-  } else if (input === 4) {
-    result += 'IV';
-  } else if (input === 5) {
-    result += 'V';
-  } else if (input > 5 && input < 9) {
-    result += 'V';
-    while (input > 5) {
-      result += 'I';
-      input--;
-    }
-  } else if (input === 9) {
-    result += 'IX';
-  }
-}
+const romanNumeral = [
+  [1000, "M"], [900, "CM"],
+  [500, "D"], [400, "CD"],
+  [100, "C"], [90, "XC"],
+  [50, "L"], [40, "XL"],
+  [10, "X"], [9, "IX"],
+  [5, "V"], [4, "IV"], [1, "I"]
+]
 
-function lessHundred(input) {
-  if (input === 10) {
-    result += 'X';
-    return;
-  }
-
-  const inputArray = [...String(input)];
-  let firstNum = parseInt(inputArray[0]);
-
-  if (firstNum < 4) {
-    while (firstNum > 0) {
-      result += 'X';
-      firstNum--;
-    }
-  } else if (firstNum === 4) {
-    result += 'XL';
-  } else if (firstNum === 5) {
-    result += 'L';
-  } else if (firstNum > 5 && firstNum < 9) {
-    result += 'L';
-    while (firstNum > 5) {
-      result += 'X';
-      firstNum--;
-    }
-  } else if (firstNum === 9) {
-    result += 'XC';
-  }
-
-  let numLess10 = parseInt(inputArray[1] || 0);
-  lessDozens(numLess10);
-}
-
-function lessThousand(input) {
-  const inputArray = [...String(input)];
-  let firstNum = parseInt(inputArray[0]);
-
-  if (firstNum < 4) {
-    while (firstNum > 0) {
-      result += 'C';
-      firstNum--;
-    }
-  } else if (firstNum === 4) {
-    result += 'CD';
-  } else if (firstNum === 5) {
-    result += 'D';
-  } else if (firstNum > 5 && firstNum < 9) {
-    result += 'D';
-    while (firstNum > 5) {
-      result += 'C';
-      firstNum--;
-    }
-  } else if (firstNum === 9) {
-    result += 'CM';
-  }
-
-  let numLess100 = parseInt(inputArray.slice(1).join('') || 0);
-  if (numLess100 > 0 && numLess100 < 10) {
-    lessDozens(numLess100);
-  } else if (numLess100 >= 10) {
-    lessHundred(numLess100);
-  }
-}
-
-function lessFourThousand(input) {
-  const inputArray = [...String(input)];
-  let firstNum = parseInt(inputArray[0]);
-
-  if (firstNum < 4) {
-    while (firstNum > 0) {
-      result += 'M';
-      firstNum--;
-    }
-  }
-
-  let numLess1000 = parseInt(inputArray.slice(1).join('') || 0);
-  if (numLess1000 > 0 && numLess1000 < 10) {
-    lessDozens(numLess1000);
-  } else if (numLess1000 >= 10 && numLess1000 < 100) {
-    lessHundred(numLess1000);
-  } else if (numLess1000 >= 100) {
-    lessThousand(numLess1000);
-  }
-}
+function romanNumConverter(num) {
+  for (let i = 0; i < romanNumeral.length; i++) {
+    while (num >= romanNumeral[i][0]) {
+      result += romanNumeral[i][1];
+      num -= romanNumeral[i][0];
+    };
+  };
+};
 
 // Toggle input between decimal and binary
 function toggleInput() {
