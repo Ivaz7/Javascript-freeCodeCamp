@@ -1,4 +1,4 @@
-let price = 1.87;
+let price = 19.5;
 let cid = [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
@@ -60,13 +60,11 @@ purchaseBtn.addEventListener('click', () => {
   }
   
   // main logic try to find change
-  changeDueResult(result, change);
+  let status = changeDueResult(result, change);
 
   drawerCashierList();
 
-  console.log(result)
-
-  renderChange(result);
+  renderChange(result, status);
 })
 
 // make a alert if the cash from the customer less
@@ -97,6 +95,8 @@ function changeDueEmpty() {
 
 // main logic to find the change
 function changeDueResult(result, change) {
+  let status = "OPEN";
+
   for (let i = 0; i < coinsValue.length; i++) {
     let cidValSame = cid.find(cid => coinsValue[i][0] === cid[0]);
     let coinName = coinsValue[i][0];
@@ -107,17 +107,33 @@ function changeDueResult(result, change) {
       cidValSame[1] = Math.round((cidValSame[1] - coinValue / 100) * 100) / 100;
       change -= coinValue;
       amountUsed += coinValue;
+      console.log(cidValSame)
     }
 
     if (amountUsed > 0) {
       result.push([coinName, (amountUsed / 100).toFixed(2)]);
     }
   }
+
+  if (change > 0) {
+    status = "INSUFFICIENT_FUNDS";
+  }
+
+  if (totalDrawer() === 0 && change === 0) {
+    status = "CLOSED";
+  }
+
+  return status;
 }
 
 // render the change to output
-function renderChange(result) {
-  changeDue.innerHTML += '<p>Status: OPEN</p>';
+function renderChange(result, status) {
+  if (status === "INSUFFICIENT_FUNDS") {
+    changeDue.innerHTML += `<p>Status: ${status}</p>`;
+    return;
+  }
+
+  changeDue.innerHTML += `<p>Status: ${status}</p>`;
   for (let i = 0; i < result.length; i++) {
     changeDue.innerHTML += `<p>${result[i][0]}: $${result[i][1]}</p>`;
   }
