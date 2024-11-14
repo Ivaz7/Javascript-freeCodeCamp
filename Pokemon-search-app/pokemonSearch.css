@@ -128,15 +128,14 @@ h1 div {
 }
 
 .bottom-container {
-  background-color: var(--blue);
-  width: 80%;
+  width: 90%;
   margin: 30px 0;
 }
 
 table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 5px;
+  border-spacing: 7px;
 }
 
 th, td {
@@ -145,9 +144,9 @@ th, td {
   font-size: larger;
 }
 
-.base {
-  background-color: var(--yellow);
-  color: var(--gray);
+.base, th {
+  background-color: var(--blue);
+  color: var(--white);
   font-weight: bold;
 }
 
