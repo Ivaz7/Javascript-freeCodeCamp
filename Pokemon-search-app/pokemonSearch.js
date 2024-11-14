@@ -5,7 +5,7 @@ const nameElem = document.getElementById('pokemon-name');
 const idElem = document.getElementById('pokemon-id');
 const weightElem = document.getElementById('weight');
 const heightElem = document.getElementById('height');
-const spritesElem = document.getElementById('sprites');
+const spritesElem = document.getElementById('sprite');
 const typesElem = document.getElementById('types');
 const HPElem = document.getElementById('hp');
 const attackElem = document.getElementById('attack');
@@ -16,7 +16,14 @@ const speedElem = document.getElementById('speed');
 
 // click search button to do the main logic
 buttonSerach.addEventListener('click', async () => {
-  const pokemonAPI = await fetchPokemonAPI();
+  const inputVal = inputSearchElem.value.toLowerCase();
+
+  if (!inputVal) {
+    alert("Pokémon not found");    
+    return;
+  }
+
+  const pokemonAPI = await fetchPokemonAPI(inputVal);
 
   const pokName = pokemonAPI.name;
   const pokId = pokemonAPI.id;
@@ -49,13 +56,7 @@ buttonSerach.addEventListener('click', async () => {
 });
 
 // fetch pokeAPI
-const fetchPokemonAPI = async () => {
-  const inputVal = inputSearchElem.value;
-
-  if (!inputVal) {
-    alert("Pokémon not found");    
-  }
-
+const fetchPokemonAPI = async (inputVal) => {
   try {
     const fetchPokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputVal}`);
     const response = await fetchPokemon.json();
