@@ -25,6 +25,11 @@ buttonSerach.addEventListener('click', async () => {
 
   const pokemonAPI = await fetchPokemonAPI(inputVal);
 
+  if (!pokemonAPI) {
+    alert( "Pokémon not found");
+    return;
+  }
+
   const pokName = pokemonAPI.name;
   const pokId = pokemonAPI.id;
   const pokWeight = pokemonAPI.weight;
@@ -63,7 +68,7 @@ const fetchPokemonAPI = async (inputVal) => {
     return response;
   } catch (err) {
     console.error(err);
-    alert("Pokémon not found");
+    return false;
   }
 }
 
