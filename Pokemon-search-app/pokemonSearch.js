@@ -14,6 +14,13 @@ const spAttackElem = document.getElementById('special-attack');
 const spDefenseElem = document.getElementById('special-defense');
 const speedElem = document.getElementById('speed');
 
+// make enter as click button event
+inputSearchElem.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    buttonSerach.click();
+  }
+})
+
 // click search button to do the main logic
 buttonSerach.addEventListener('click', async () => {
   const inputVal = inputSearchElem.value.toLowerCase();

@@ -4,6 +4,13 @@ const result = document.querySelector('.result');
 const checkBtn = document.querySelector('.check-btn');
 const clearBtn = document.querySelector('.clear-btn');
 
+// make enter as click button event
+input.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    checkBtn.click();
+  }
+})
+
 // main logic validator
 checkBtn.addEventListener('click', () => {
   const inputVal = input.value;

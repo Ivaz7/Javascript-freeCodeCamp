@@ -3,6 +3,13 @@ const inputTextElem = document.querySelector('.text-input');
 const buttonCheckElem = document.querySelector('.check-btn');
 const resultTextElem = document.querySelector('.text-result');
 
+// make enter as click button event
+inputTextElem.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    buttonCheckElem.click();
+  }
+})
+
 // Palindrome main logic
 buttonCheckElem.addEventListener("click", () => {
   let inputText = inputTextElem.value;

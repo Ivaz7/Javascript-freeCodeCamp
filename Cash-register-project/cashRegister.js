@@ -42,6 +42,13 @@ function drawerCashierList() {
   }
 }
 
+// make enter as click button event
+cash.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    purchaseBtn.click();
+  }
+})
+
 // main logic when we click
 purchaseBtn.addEventListener('click', () => {
   let cashVal = Math.round(Number(cash.value) * 100);

@@ -21,6 +21,13 @@ function validateInput() {
   return inputField.value;
 }
 
+// make enter as click button event
+inputElem.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    buttonElem.click();
+  }
+})
+
 buttonElem.addEventListener('click', () => {
   result = ''; // Reset result each time the button is clicked
   let input = validateInput();
