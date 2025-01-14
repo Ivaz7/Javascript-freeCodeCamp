@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box; 
+  transition: all ease-in-out 0.15s;
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
@@ -12,7 +18,12 @@
 
 body {
   background-color: var(--blue);
-  color: var(--white);
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
@@ -20,74 +31,90 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width:400px;
-}
-
-h1 {
-  font-size: 40px;
-}
-
-p {
-  font-size: 20px;
-  color: var(--white);
-}
-
-input, button {
-  font-size: 15px;
-  color: var(--gray);
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: none;
-}
-
-input {
-  outline: none;
-}
-
-button {
-  background-color: var(--red);
-  color: var(--gray);
-  cursor: pointer;
-}
-
-::placeholder {
-  color: var(--gray);
+  gap: 2rem;
+  width: 40%;
+  height: 100%;
 }
 
 .core-container {
   background-color: var(--brown);
-  padding: 20px 20px;
-  border-radius: 25px;
-  border-bottom: 5px solid var(--red);
+  padding: 1rem;
+  border-radius: 1rem;
+  border-bottom: 0.3rem solid var(--red);
 
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  align-content: center;
+  justify-items: center;
+  gap: 1rem;
 }
 
 .input-button {
   display: flex;
   flex-direction: row;
-  column-gap: 8px;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.text-result {
-  font-size: 20px;
+.text-input, .check-btn {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+.text-input {
+  background-color: var(--white);
+  color: var(--red);
+  text-align: left;
+  outline: none;
+}
+
+.check-btn {
+  background-color: var(--red);
+  color: var(--gray);
+  cursor: pointer;
+}
+
+.check-btn:hover {
+  background-color: var(--gray);
+  color: var(--red);
 }
 
 .explanation {
-  display: inline-block;
   background-color: var(--red);
-  color: var(--gray);
-  font-size: 25px;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}
 
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
+@media (max-width:350px) {
+  h1 {
+    font-size: 1rem;
+  }
+
+  main {
+    gap: 0.3rem;
+  }
+
+  .core-container {
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-bottom: 0.2rem solid var(--red);
+  }
+
+  .text-input, .check-btn {
+    padding: 0.2rem 0.3rem;
+  }
+
+  .text-input, .check-btn, .text-result {
+    font-size: 0.6rem;
+  }
+
+  .explanation {
+    font-size: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
 }

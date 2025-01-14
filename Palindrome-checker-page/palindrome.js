@@ -24,7 +24,7 @@ buttonCheckElem.addEventListener("click", () => {
   let i = 0;
   let j = inputNormalize.length - 1;
 
-  while (i < Math.floor((j + 1) / 2)) {
+  while (i < Math.ceil((inputNormalize.length) / 2)) {
     if (inputNormalize[i] !== inputNormalize[j]) {
       resultTextElem.innerHTML = `<strong>${inputTextElem.value}</strong> is <strong>not</strong> a Palindrome`;      
       return;
