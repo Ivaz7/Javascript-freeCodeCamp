@@ -13,35 +13,27 @@ inputTextElem.addEventListener('keydown', event => {
 // Palindrome main logic
 buttonCheckElem.addEventListener("click", () => {
   let inputText = inputTextElem.value;
-  let inputNormalize  = inputText.replace(/[\|\/\\\-:(),._ ]/g, '').toLowerCase();
 
   if (inputText === '') {
     alert('Please input a value')
     return;
   }
 
-  let inputVal = [...inputNormalize];
-  let fisrtArray = [];
-  let LastArray = [];
+  let inputNormalize  = inputText.replace(/[^a-z0-9A-Z]/g, '').toLowerCase();
 
-  let halfLength = inputVal.length / 2;
-  
-  for (let i = 0; i < halfLength; i++) {
-    fisrtArray.push(inputVal[i]);
+  let i = 0;
+  let j = inputNormalize.length - 1;
+
+  while (i < Math.floor((j + 1) / 2)) {
+    if (inputNormalize[i] !== inputNormalize[j]) {
+      resultTextElem.innerHTML = `<strong>${inputTextElem.value}</strong> is <strong>not</strong> a Palindrome`;      
+      return;
+    }
+
+    i++
+    j--
   }
 
-  let backLoopInputVal = inputVal.reverse();
-  for (let j = 0; j < halfLength; j++) {
-    LastArray.push(backLoopInputVal[j]);
-  }
-
-  // check if from the start and from the last text is the same
-  if (
-    fisrtArray.length === LastArray.length && fisrtArray.every((value, index) => value === LastArray[index])
-  ) {
-    resultTextElem.innerHTML = `<strong>${inputTextElem.value}</strong> is a Palindrome`;
-  } else {
-    resultTextElem.innerHTML = `<strong>${inputTextElem.value}</strong> is <strong>not</strong> a Palindrome`;
-  }
+  resultTextElem.innerHTML = `<strong>${inputTextElem.value}</strong> is a Palindrome`;
 });
 
