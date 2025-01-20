@@ -154,6 +154,7 @@ header > h2 > div:nth-of-type(1) {
 }
 
 .top-container {
+  height: 11.5rem;
   width: 100%;
   background-color: var(--white);
   display: flex;
