@@ -101,7 +101,11 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 1rem 1rem 0 0;
-  padding: 0.5rem;
+  padding: 1rem;
+}
+
+header > h2 > div {
+  font-size: 2rem;
 }
 
 header > h2 > div:nth-of-type(1) {
@@ -116,7 +120,7 @@ header > h2 > div:nth-of-type(1) {
 
 .input-container {
   padding: 0.7rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -130,8 +134,9 @@ header > h2 > div:nth-of-type(1) {
 }
 
 #search-input, #search-button {
-  border-radius: 0.2rem;
-  padding: 0.2rem;
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+  font-size: 1rem;
 }
 
 #search-input {
@@ -149,11 +154,11 @@ header > h2 > div:nth-of-type(1) {
 }
 
 .top-container {
-  height: 9rem;
   width: 100%;
   background-color: var(--white);
   display: flex;
   flex-direction: column;
+  padding: 0.3rem;
 }
 
 .top-container > div:nth-of-type(1) {
@@ -161,7 +166,7 @@ header > h2 > div:nth-of-type(1) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.2rem;
+  gap: 0.3rem;
 }
 
 .name-id, .size {
@@ -172,13 +177,13 @@ header > h2 > div:nth-of-type(1) {
 
 #pokemon-name, #pokemon-id, #weight, #height {
   color: var(--black);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: bold;
 }
 
 #sprite {
-  height: 6rem;
-  width: 6rem;
+  height: 7.5rem;
+  width: 7.5rem;
   object-fit: contain;
   align-self: center;
 }
@@ -191,7 +196,8 @@ header > h2 > div:nth-of-type(1) {
 }
 
 .types-pokemon-div {
-  font-size: 0.7rem;
+  font-weight: bold;
+  font-size: 0.8rem;
   color: var(--black);
   padding: 0.2rem;
   border-radius: 0.2rem;
@@ -213,7 +219,7 @@ th, td {
   width: 50%;
   background-color: var(--gray);
   padding: 0.1rem;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 tr:nth-of-type(1) > th, tr:nth-of-type(1) > td {
